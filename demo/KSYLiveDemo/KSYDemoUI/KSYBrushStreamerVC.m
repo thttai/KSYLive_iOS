@@ -28,8 +28,8 @@
 }
 - (void)setupUI{
     [super setupUI];
-    _drawBtn = [self.ctrlView addButton:@"启动画板"];
-    [_drawBtn setTitle:@"清除画板" forState: UIControlStateSelected ];
+    _drawBtn = [self.ctrlView addButton:@"Launchpad"];
+    [_drawBtn setTitle:@"clear artboard" forState: UIControlStateSelected ];
     _drawView = [[KSYDrawingView alloc] init];
     [_drawView.layer setBorderColor:[[UIColor blueColor] CGColor]];
     [_drawView.layer setBorderWidth:2.0f];

@@ -62,7 +62,7 @@
     self = [super init];
     _presetCfgView = presetCfgView;
     [self initObservers];
-    _menuNames = @[@"背景音乐", @"图像/美颜",@"声音", @"消息", @"其他"];
+    _menuNames = @[@"Background music", @"Image/Beauty",@"Sound", @"Message", @"Other"];
     self.view.backgroundColor = [UIColor blackColor];
     _dlLock = [[NSLock alloc] init];
     return self;
@@ -150,7 +150,7 @@
     _ctrlView.onBtnBlock = ^(id btn){
         [selfWeak onBasicCtrl:btn];
     };
-    // 背景音乐控制页面
+    // Background music control page
     _ksyBgmView.onBtnBlock = ^(id sender) {
         [selfWeak onBgmBtnPress:sender];
     };
@@ -375,20 +375,20 @@
     _kit.aCapDev.noiseSuppressionLevel = self.audioView.noiseSuppress;
     weakObj(self);
     _kit.videoProcessingCallback = ^(CMSampleBufferRef buf){
-        selfWeak.ctrlView.lblStat.capFrames += 1; // 统计预览帧率(实际使用时不需要)
-        // 在此处添加自定义图像处理, 直接修改buf中的图像数据会传递到观众端
-        // 或复制图像数据之后再做其他处理, 则观众端仍然看到处理前的图像
+    selfWeak.ctrlView.lblStat.capFrames += 1; // Count the preview frame rate (not needed in actual use)
+    // Add custom image processing here, directly modifying the image data in buf will be passed to the audience side
+    // Or copy the image data and do other processing, then the audience side will still see the image before processing
     };
     _kit.audioProcessingCallback = ^(CMSampleBufferRef buf){
-        // 在此处添加自定义音频处理, 直接修改buf中的pcm数据会传递到观众端
-        // 或复制音频数据之后再做其他处理, 则观众端仍然听到原始声音
+    // Add custom audio processing here, directly modifying the pcm data in buf will be passed to the audience side
+    // Or copy the audio data and do other processing, then the audience side will still hear the original sound
     };
     _kit.pcmProcessingCallback = ^(uint8_t** pData, int len, const AudioStreamBasicDescription* fmt, CMTime timeInfo){
-        // 在此处添加自定义音频处理, 直接修改pcm数据会传递到观众端
-        // 或复制音频数据之后再做其他处理, 则观众端仍然听到原始声音
+    // Add custom audio processing here, directly modifying the pcm data will be passed to the audience side
+    // Or copy the audio data and do other processing, then the audience side will still hear the original sound
     };
     _kit.interruptCallback = ^(BOOL bInterrupt){
-        // 在此处添加自定义图像采集被打断的处理 (比如接听电话等)
+    // Add custom image capture interruption handling here (such as answering phone calls, etc.)
     };
 }
 
@@ -447,10 +447,10 @@
     _kit.maxAutoRetry = (int)_miscView.autoReconnect.slider.value;
     [self updateSwAudioOnly:bStart];
     
-    //判断是直播还是录制
+    //Determine whether it is live streaming or recording
     NSString* title = _ctrlView.btnStream.currentTitle;
-    _bRecord = [ title isEqualToString:@"开始录制"];
-    _miscView.swBypassRec.enabled = !_bRecord; // 直接录制时, 不能旁路录制
+    _bRecord = [ title isEqualToString:@"Start recording"];
+    _miscView.swBypassRec.enabled = !_bRecord; // When recording directly, bypass recording is not allowed
     if (_bRecord && bStart){
         [self deleteFile:[_presetCfgView hostUrl]];
     }
@@ -459,22 +459,22 @@
 // 启动推流 / 停止推流
 - (void) updateSwAudioOnly : (BOOL) bStart {
     if (bStart) {
-        if (self.audioView.swAudioOnly.on) {  // 开启了纯音频推流
+        if (self.audioView.swAudioOnly.on) {  // Turned on pure audio streaming
             self.audioView.swAudioOnly.enabled = NO;
-            self.audioView.lblAudioOnly.text =@"纯音频流";
-            _kit.streamerBase.bWithVideo = NO;  // 关闭视频
+            self.audioView.lblAudioOnly.text =@"Pure audio stream";
+            _kit.streamerBase.bWithVideo = NO;  // Turn off video
         }
         else {
             self.audioView.swAudioOnly.enabled = YES;
-            self.audioView.lblAudioOnly.text =@"冻结画面";
-            _kit.streamerBase.bWithVideo = YES; //未启用纯音频推流 开启视频
+            self.audioView.lblAudioOnly.text =@"Freeze screen";
+            _kit.streamerBase.bWithVideo = YES; //Did not enable pure audio streaming Turn on video
         }
     }
     else {
-        if ([self.audioView.lblAudioOnly.text isEqualToString:@"冻结画面"]) {
+        if ([self.audioView.lblAudioOnly.text isEqualToString:@"Freeze screen"]) {
             self.audioView.swAudioOnly.on = NO;
         }
-        self.audioView.lblAudioOnly.text = @"纯音频流";
+        self.audioView.lblAudioOnly.text = @"Pure audio stream";
         self.audioView.swAudioOnly.enabled = YES;
     }
 }
@@ -843,7 +843,7 @@
     }
     else if (sw == _audioView.swPlayCapture){
         if ( ![KSYAUAudioCapture isHeadsetPluggedIn] ) {
-            [KSYUIVC toast:@"没有耳机, 开启耳返会有刺耳的声音" time:0.3];
+            [KSYUIVC toast:@"There will be a harsh sound when turning on ear feedback without headphones" time:0.3];
             sw.on = NO;
             _kit.aCapDev.bPlayCapturedAudio = NO;
             return;
@@ -852,7 +852,7 @@
     }
     else if (sw == _audioView.swReverbEffect){
         if (_audioView.audioEffect != KSYAudioEffectType_COUSTOM){
-            [KSYUIVC toast:@"切换至自定义模式，才可开启" time:0.3];
+            [KSYUIVC toast:@"Switch to custom mode to enable" time:0.3];
             sw.on = NO;
             return;
         }
@@ -865,7 +865,7 @@
     }
     else if (sw == _audioView.swDelayEffect){
         if (_audioView.audioEffect != KSYAudioEffectType_COUSTOM){
-            [KSYUIVC toast:@"切换至自定义模式，才可开启" time:0.3];
+            [KSYUIVC toast:@"Switch to custom mode to enable" time:0.3];
             sw.on = NO;
             return;
         }
@@ -878,7 +878,7 @@
     }
     else if (sw == _audioView.swPitchEffect){
         if (_audioView.audioEffect != KSYAudioEffectType_COUSTOM){
-            [KSYUIVC toast:@"切换至自定义模式，才可开启" time:0.3];
+            [KSYUIVC toast:@"Switch to custom mode to enable" time:0.3];
             sw.on = NO;
             return;
         }
@@ -1020,13 +1020,15 @@
             //状态为录制视频
             playUrlQRCodeVc.url = [_presetCfgView.hostUrlUI.text lastPathComponent];
         }else{
-            //状态为直播视频
-            //推流地址对应的拉流地址
+            //Status is live video
+            //The pull stream address corresponding to the push stream address
             NSString * uuidStr =[[[UIDevice currentDevice] identifierForVendor] UUIDString];
-            NSString *devCode  = [[uuidStr substringToIndex:3] lowercaseString];
-            NSString *streamPlaySrv = @"http://mobile.kscvbu.cn:8080/live";
-            NSString *streamPlayPostfix = @".flv";
-            playUrlQRCodeVc.url = [ NSString stringWithFormat:@"%@/%@%@", streamPlaySrv, devCode,streamPlayPostfix];
+//            NSString *devCode  = [[uuidStr substringToIndex:3] lowercaseString];
+            NSString *devCode  = [NSString stringWithFormat:@"%.0f", [NSDate timeIntervalSinceReferenceDate]];
+            NSLog(@"----- streamkey1 {%@}", devCode);
+            NSString *streamPlaySrv = @"rtmp://media-server-loadbalance-dev-b57a989a84b69859.elb.ap-southeast-1.amazonaws.com:1935/live";
+            NSString *streamPlayPostfix = @"index.m3u8";
+            playUrlQRCodeVc.url = [ NSString stringWithFormat:@"%@/%@/%@", streamPlaySrv, devCode,streamPlayPostfix];
         }
         [self presentViewController:playUrlQRCodeVc animated:YES completion:nil];
     }
@@ -1127,7 +1129,7 @@
             [_kit.streamerBase startBypassRecord:url];
         }
         else {
-            NSString * msg = @"推流过程中才能旁路录像";
+            NSString * msg = @"The recording can only be bypassed during streaming";
             [KSYUIVC toast:msg time:1];
             _miscView.swBypassRec.on = NO;
         }

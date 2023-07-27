@@ -23,6 +23,10 @@
     cfg.channel = @"public";
     [Bugly startWithAppId:@"900034350" config:cfg];
     
+    if (@available(iOS 13.0, *)) {
+        [_window setOverrideUserInterfaceStyle: UIUserInterfaceStyleLight];
+    }
+
     // Override point for customization after application launch.
     return YES;
 }

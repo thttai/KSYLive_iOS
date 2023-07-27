@@ -30,7 +30,7 @@
 - (void)setupUI {
     [super setupUI];
     // top view
-    selectFileBtn = [self.ctrlView addButton:@"选择背景图片"];
+    selectFileBtn = [self.ctrlView addButton:@"Choose a background image"];
     [self layoutUI];
 }
 

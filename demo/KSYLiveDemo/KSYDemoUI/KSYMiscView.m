@@ -26,17 +26,17 @@
 
 - (id)init{
     self = [super init];
-    _btn0  = [self addButton:@"截图1"];
-    _btn1  = [self addButton:@"截图2"];
-    _btn2  = [self addButton:@"filter截图"];
-    
-    _lblLogo = [self addLable:@"logo"];
-    _btn3  = [self addButton:@"选择"];
-    _btn4  = [self addButton:@"拍摄"];
-    _btn5  = [self addButton:@"清除"];
-    _btnAnimate  = [self addButton:@"动态图"];
-    _btnNext     = [self addButton:@" 下一张 "];
-    _lblAnimate  = [self addLable:@"动态logo"];
+    _btn0  = [self addButton:@"Screenshot 1"]; // create a button for taking a screenshot 1
+    _btn1  = [self addButton:@"Screenshot 2"]; // create a button for taking a screenshot 2
+    _btn2  = [self addButton:@"Filter screenshot"]; // create a button for taking a screenshot with filter
+
+    _lblLogo = [self addLable:@"Logo"]; // create a label for logo option
+    _btn3  = [self addButton:@"Select"]; // create a button for selecting a logo
+    _btn4  = [self addButton:@"Capture"]; // create a button for capturing a logo
+    _btn5  = [self addButton:@"Clear"]; // create a button for clearing the logo
+    _btnAnimate  = [self addButton:@"Animated image"]; // create a button for creating an animated image
+    _btnNext     = [self addButton:@" Next "]; // create a button for going to the next image
+    _lblAnimate  = [self addLable:@"Animated logo"]; // create a label for animated logo option
     _sel = [[KSYFileSelector alloc] initWithDir:@"/Documents/logo/"
                                       andSuffix:@[@".gif", @".png", @".apng"]];
     if (_sel.fileList.count < 3) {
@@ -52,24 +52,24 @@
             [_sel selectFileWithType:KSYSelectType_NEXT];
         }
     }
-    _lblRec       = [self addLable:@"旁路录制"];
-    _swBypassRec  = [self addSwitch:NO];
-    _lblRecDur    = [self addLable:@"0s"];
-    
-    _layerSeg = [self addSegCtrlWithItems:@[ @"logo", @"文字"]];
-    _alphaSl  = [self addSliderName:@"alpha" From:0.0 To:1.0 Init:1.0];
-    
-    _lblScene      = [self addLable:@"直播场景"];
-    _liveSceneSeg  = [self addSegCtrlWithItems:@[ @"默认", @"秀场", @"游戏"]];
-    _lbrScene      = [self addLable:@"录制场景"];
-    _recSceneSeg  = [self addSegCtrlWithItems:@[ @"恒定码率", @"恒定质量"]];
-    _lblPerf       = [self addLable:@"编码性能"];
-    _vEncPerfSeg   = [self addSegCtrlWithItems:@[ @"低功耗", @"均衡", @"高性能"]];
-    _autoReconnect = [self addSliderName:@"自动重连次数" From:0.0 To:10 Init:3];
-    //添加一个显示拉流地址和对应二维码的按钮
-    _buttonPlayUrlAndQR = [self addButton:@"拉流地址及二维码"];
-    [self updateLogoBtn];
-    _buttonAe = [self addButton:@"贴纸编辑"];
+    _lblRec       = [self addLable:@"Bypass recording"]; // create a label for bypass recording option
+    _swBypassRec  = [self addSwitch:NO]; // create a switch for bypass recording option
+    _lblRecDur    = [self addLable:@"0s"]; // create a label for showing the recording duration
+
+    _layerSeg = [self addSegCtrlWithItems:@[ @"Logo", @"Text"]]; // create a segmented control for choosing the layer type
+    _alphaSl  = [self addSliderName:@"Alpha" From:0.0 To:1.0 Init:1.0]; // create a slider for adjusting the alpha value
+
+    _lblScene      = [self addLable:@"Live scene"]; // create a label for live scene option
+    _liveSceneSeg  = [self addSegCtrlWithItems:@[ @"Default", @"Show", @"Game"]]; // create a segmented control for choosing the live scene
+    _lbrScene      = [self addLable:@"Recording scene"]; // create a label for recording scene option
+    _recSceneSeg  = [self addSegCtrlWithItems:@[ @"Constant bitrate", @"Constant quality"]]; // create a segmented control for choosing the recording scene
+    _lblPerf       = [self addLable:@"Encoding performance"]; // create a label for encoding performance option
+    _vEncPerfSeg   = [self addSegCtrlWithItems:@[ @"Low power", @"Balanced", @"High performance"]]; // create a segmented control for choosing the encoding performance
+    _autoReconnect = [self addSliderName:@"Auto reconnect times" From:0.0 To:10 Init:3]; // create a slider for adjusting the auto reconnect times
+    // Add a button to show the pull stream address and corresponding QR code
+    _buttonPlayUrlAndQR = [self addButton:@"Pull stream address and QR code"];
+    [self updateLogoBtn]; // update the logo button
+    _buttonAe = [self addButton:@"Sticker editor"]; // create a button for editing stickers
     _skipBtnTap = NO;
     return self;
 }

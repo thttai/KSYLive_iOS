@@ -76,7 +76,8 @@
 }
 
 - (void)setupUI {
-    //初始化各个控件
+    
+    //Initialize the various controls
     ctrlView = [[KSYUIView alloc] initWithFrame:self.view.bounds];
     ctrlView.backgroundColor = [UIColor whiteColor];
     ctrlView.gap = ELEMENT_GAP;
@@ -90,49 +91,49 @@
         [selfWeak onSeg:sender];
     };
     
-    labelHostUrl = [ctrlView addLable:@"播放地址"];
+    labelHostUrl = [ctrlView addLable:@"Play URL"];
     textHostUrl = [ctrlView addTextField:[_url isFileURL] ? [_url path] : [_url absoluteString]];
     textHostUrl.returnKeyType = UIReturnKeyDone;
     textHostUrl.delegate = self;
     
-    //放置硬解码和swich开关
-    labelHWCodec = [ctrlView addLable:@"解码方式"];
-    segHWCodec = [ctrlView addSegCtrlWithItems:@[@"高级硬解", @"自动",@"硬解",@"软解"]];
+    //Place the hardware decoding and swich switch
+    labelHWCodec = [ctrlView addLable:@"Decoding method"];
+    segHWCodec = [ctrlView addSegCtrlWithItems:@[@"Advanced hardware decoding", @"Auto",@"Hardware decoding",@"Software decoding"]];
     segHWCodec.selectedSegmentIndex = 1;
     
-    labelContentMode = [ctrlView addLable:@"填充模式"];
-    segContentMode = [ctrlView addSegCtrlWithItems:@[@"无", @"同比", @"裁剪", @"满屏"]];
+    labelContentMode = [ctrlView addLable:@"Fill mode"];
+    segContentMode = [ctrlView addSegCtrlWithItems:@[@"None", @"Proportional", @"Crop", @"Full screen"]];
     segContentMode.selectedSegmentIndex = 1;
     
-    labelAutoPlay = [ctrlView addLable:@"自动播放"];
-    segAutoPlay = [ctrlView addSegCtrlWithItems:@[@"开启",@"关闭"]];
+    labelAutoPlay = [ctrlView addLable:@"Auto play"];
+    segAutoPlay = [ctrlView addSegCtrlWithItems:@[@"On",@"Off"]];
     
-    labelDeinterlace = [ctrlView addLable:@"反交错模式"];
-    segDeinterlace = [ctrlView addSegCtrlWithItems:@[@"开启",@"关闭"]];
+    labelDeinterlace = [ctrlView addLable:@"Deinterlace mode"];
+    segDeinterlace = [ctrlView addSegCtrlWithItems:@[@"On",@"Off"]];
     
-    labelAudioInterrupt = [ctrlView addLable:@"音频打断模式"];
-    segAudioInterrupt = [ctrlView addSegCtrlWithItems:@[@"开启",@"关闭"]];
+    labelAudioInterrupt = [ctrlView addLable:@"Audio interrupt mode"];
+    segAudioInterrupt = [ctrlView addSegCtrlWithItems:@[@"On",@"Off"]];
     
-    labelLoop = [ctrlView addLable:@"循环播放"];
-    segLoop = [ctrlView addSegCtrlWithItems:@[@"开启",@"关闭"]];
+    labelLoop = [ctrlView addLable:@"Loop play"];
+    segLoop = [ctrlView addSegCtrlWithItems:@[@"On",@"Off"]];
     segLoop.selectedSegmentIndex = 1;
     
-    labelMode = [ctrlView addLable:@"播放类型"];
-    segMode = [ctrlView addSegCtrlWithItems:@[@"直播", @"点播"]];
+    labelMode = [ctrlView addLable:@"Play type"];
+    segMode = [ctrlView addSegCtrlWithItems:@[@"Live", @"VOD"]];
     
-    sliderConnectTimeout = [ctrlView addSliderName:@"连接超时(秒)" From:3 To:100 Init:10];
-    sliderReadTimeout = [ctrlView addSliderName:@"读超时(秒)" From:3 To:100 Init:30];
-    sliderBufferTimeMax = [ctrlView addSliderName:@"bufferTimeMax(秒)" From:0 To:60 Init:2];
-    sliderBufferSizeMax = [ctrlView addSliderName:@"bufferSizeMax(MB)" From:0 To:100 Init:15];
- 
-    demoLable    = [ctrlView addLable:@"选择相应按钮开始"];
+    sliderConnectTimeout = [ctrlView addSliderName:@"Connection timeout (seconds)" From:3 To:100 Init:10];
+    sliderReadTimeout = [ctrlView addSliderName:@"Read timeout (seconds)" From:3 To:100 Init:30];
+    sliderBufferTimeMax = [ctrlView addSliderName:@"bufferTimeMax (seconds)" From:0 To:60 Init:2];
+    sliderBufferSizeMax = [ctrlView addSliderName:@"bufferSizeMax (MB)" From:0 To:100 Init:15];
+    
+    demoLable    = [ctrlView addLable:@"Select the corresponding button to start"];
     demoLable.textAlignment = NSTextAlignmentCenter;
     
-    //添加一个播放按钮
-    btnPlay = [ctrlView addButton:@"播放"];
-    //添加一个退出按钮
-    btnQuit = [ctrlView addButton:@"退出"];
-    btnSamplestPlay = [ctrlView addButton:@"极简播放"];
+    //Add a play button
+    btnPlay = [ctrlView addButton:@"Play"];
+    //Add a quit button
+    btnQuit = [ctrlView addButton:@"Quit"];
+    btnSamplestPlay = [ctrlView addButton:@"Simplest play"];
     
     [self layoutUI];
     

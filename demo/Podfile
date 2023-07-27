@@ -4,24 +4,24 @@ use_frameworks!
 
 target 'KSYLiveDemo' do
   pod 'Bugly'
-  # YYImage 仅demo中用于导入gif和apng的格式的图片用到了
-  # 不需要支持这些格式的话,不需要添加YYImage的依赖
+  # YYImage is only used for importing gif and apng images in the demo format
+  # If you don't need to support these formats, you don't need to add YYImage dependencies
   pod 'YYImage'
-  # ZipArchive 仅demo中用于解压资源文件,不是必须依赖
+  # ZipArchive is only used to decompress resource files in the demo, not necessarily dependent
   pod 'ZipArchive', '~> 1.4'
   
   pod 'GPUImage'
-  # KSYGPUResource 为基础版本的图片资源, 包含了美颜滤镜必须依赖的图片
-  pod 'libksygpulive/KSYGPUResource',      :path => '../'
-  # KSYGPUResourceFull 为完整版本的图片资源, 包含了所有特效滤镜的图片
+  # KSYGPUResource is the basic version of the image resource, which contains the images that the beauty filter must rely on
+  pod 'libksygpulive/KSYGPUResource',      :path => '/Users/taitruong/working/sizzl/app.sizzl.ios/sizzl/Vendor/KSYLive/'
+  # KSYGPUResourceFull is the full version of image resources, including images of all special effects filters
   #pod 'libksygpulive/KSYGPUResourceFull',      :path => '../'
-  ## 请根据需要选择要添加的资源包, 完整版的资源引入的增量为3.1M
+  ## Please select the resource package to add according to your needs, the increment of the full version of resource introduction is 3.1M
 
-  pod 'libksygpulive/libksygpulive',       :path => '../'
+  pod 'libksygpulive/libksygpulive',       :path => '/Users/taitruong/working/sizzl/app.sizzl.ios/sizzl/Vendor/KSYLive/'
   # pod 'libksygpulive/libksygpulive_265', :path => '../'
 
-  # libksygpulive_ks3 和 libksygpulive 的库完全相同
-  # 只是ks3的库存放在国内的云盘上, 比从github clone速度快一些
+  # The libraries of libksygpulive_ks3 and libksygpulive are exactly the same
+  # It's just that the inventory of ks3 is placed on the domestic cloud disk, which is faster than github clone
   # pod 'libksygpulive_ks3/KSYGPUResource'
   # pod 'libksygpulive_ks3/libksygpulive'
 end
@@ -29,8 +29,8 @@ end
 target 'KSYLiveDemo_Swift' do
     pod 'Bugly'
     pod 'GPUImage'
-    pod 'libksygpulive/KSYGPUResource', :path => '../'
-    pod 'libksygpulive/libksygpulive', :path => '../'
+    pod 'libksygpulive/KSYGPUResource', :path => '/Users/taitruong/working/sizzl/app.sizzl.ios/sizzl/Vendor/KSYLive/'
+    pod 'libksygpulive/libksygpulive', :path => '/Users/taitruong/working/sizzl/app.sizzl.ios/sizzl/Vendor/KSYLive/'
     #pod 'libksygpulive/libksygpulive_265', :path => '../'
 end
 

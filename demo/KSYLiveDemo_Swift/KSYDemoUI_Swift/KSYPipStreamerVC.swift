@@ -30,7 +30,7 @@ class KSYPipStreamerVC: KSYStreamerVC {
     
     override func viewDidLoad() {
         if let _ = menuNames {
-            menuNames!.append("画中画")
+            menuNames!.append("picture in picture")
         }
         pipKit = KSYGPUPipStreamerKit.init(defaultCfg: ())
         kit = pipKit

@@ -355,7 +355,7 @@ class KSYStreamerVC: KSYUIVC, UIImagePickerControllerDelegate, UINavigationContr
         
         //判断是直播还是录制
         let title = (ctrlView?.btnStream?.currentTitle)!
-        _bRecord = (title == "开始录制")
+        _bRecord = (title == "start recording")
         miscView?.swBypassRec?.isEnabled = !_bRecord! // 直接录制时, 不能旁路录制
         
         if _bRecord! && bStart {

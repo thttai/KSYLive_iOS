@@ -56,6 +56,8 @@
 		58BCC14C1F2F406500D77E5E /* KSYPlayerPicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BCC1471F2F406500D77E5E /* KSYPlayerPicView.m */; };
 		58BCC14D1F2F406500D77E5E /* KSYPlayerSubtitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BCC1491F2F406500D77E5E /* KSYPlayerSubtitleView.m */; };
 		625EF3B51C9A95BE00DBA1CC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 625EF3B41C9A95BE00DBA1CC /* libsqlite3.tbd */; };
+		6E1283302A716B1C00DDA5BB /* SIZZL_DIG05_BAKING_05_9x16_V1_REFINERY.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6E12832F2A716B1C00DDA5BB /* SIZZL_DIG05_BAKING_05_9x16_V1_REFINERY.mp4 */; };
+		6E1283322A716D2000DDA5BB /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6E1283312A716D2000DDA5BB /* background.jpg */; };
 		95B4A3F11CBF6CC700CB6804 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B4A3EE1CBF6CC700CB6804 /* QRViewController.m */; };
 		C323BC1E1E794C2900D4682C /* KSYFloatStreamerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C323BC1D1E794C2900D4682C /* KSYFloatStreamerVC.m */; };
 		C323BC211E794DEB00D4682C /* KSYFloatingWindowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C323BC201E794DEB00D4682C /* KSYFloatingWindowVC.m */; };
@@ -98,9 +100,11 @@
 		C3ECDD0E1E6FFA34007203E5 /* KSYHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ECDD0D1E6FFA34007203E5 /* KSYHelper.m */; };
 		C3ECDD441E72BE81007203E5 /* KSYGPUResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06E742AB1D90FFD600C3E780 /* KSYGPUResource.bundle */; };
 		C3ECDD451E72BE81007203E5 /* KSYLiveDemo-dy-framework.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 06CF36E71DE5D14C00BCE88C /* KSYLiveDemo-dy-framework.xcconfig */; };
+		DFF719C38B1C4C7FF169B24A /* Pods_KSYLiveDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABFCE1ADE574DD6F7E5F7FE /* Pods_KSYLiveDemo.framework */; };
 		E33527ED1E49986400DB6DD1 /* KSYSimplestStreamerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E33527EC1E49986400DB6DD1 /* KSYSimplestStreamerVC.m */; };
 		E3EDA85B1D17BBCE00B54437 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EDA85A1D17BBCE00B54437 /* SystemConfiguration.framework */; };
 		E3EDA85D1D17BBDA00B54437 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EDA85C1D17BBDA00B54437 /* Security.framework */; };
+		E463C18377F44E0519482C13 /* Pods_KSYLiveDemo_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81B29BA4ECBA9BB5FD7C0F9 /* Pods_KSYLiveDemo_Swift.framework */; };
 		F296EC001D3527FF001C4120 /* KSYMiscView.m in Sources */ = {isa = PBXBuildFile; fileRef = F296EBFF1D3527FF001C4120 /* KSYMiscView.m */; };
 /* End PBXBuildFile section */
 
@@ -185,6 +189,7 @@
 		06FBBD481D2E17E00065ED55 /* KSYUIVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYUIVC.m; sourceTree = "<group>"; };
 		06FBBD491D2E17E00065ED55 /* KSYUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYUIView.h; sourceTree = "<group>"; };
 		06FBBD4A1D2E17E00065ED55 /* KSYUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYUIView.m; sourceTree = "<group>"; };
+		24A4993A74AC1678C8AF8A0C /* Pods-KSYLiveDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYLiveDemo.release.xcconfig"; path = "Target Support Files/Pods-KSYLiveDemo/Pods-KSYLiveDemo.release.xcconfig"; sourceTree = "<group>"; };
 		31F5D1DC1ED683A900588B8E /* KSYQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYQRCode.h; path = KSYDemoUI/KSYQRCode.h; sourceTree = "<group>"; };
 		31F5D1DD1ED683A900588B8E /* KSYQRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYQRCode.m; path = KSYDemoUI/KSYQRCode.m; sourceTree = "<group>"; };
 		3991D0EE1DD5674200032EC0 /* KSYRecordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYRecordVC.h; path = KSYLiveDemo/KSYPlayerDemo/KSYRecordVC.h; sourceTree = "<group>"; };
@@ -212,8 +217,12 @@
 		58BCC1481F2F406500D77E5E /* KSYPlayerSubtitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYPlayerSubtitleView.h; sourceTree = "<group>"; };
 		58BCC1491F2F406500D77E5E /* KSYPlayerSubtitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYPlayerSubtitleView.m; sourceTree = "<group>"; };
 		625EF3B41C9A95BE00DBA1CC /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		6E12832F2A716B1C00DDA5BB /* SIZZL_DIG05_BAKING_05_9x16_V1_REFINERY.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SIZZL_DIG05_BAKING_05_9x16_V1_REFINERY.mp4; sourceTree = "<group>"; };
+		6E1283312A716D2000DDA5BB /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		8279EC1AAEF2B8AAD791E49E /* Pods-KSYLiveDemo_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYLiveDemo_Swift.debug.xcconfig"; path = "Target Support Files/Pods-KSYLiveDemo_Swift/Pods-KSYLiveDemo_Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		95B4A3ED1CBF6CC700CB6804 /* QRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = "<group>"; };
 		95B4A3EE1CBF6CC700CB6804 /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = "<group>"; };
+		A80BAE9BF6C4EFFBB434A904 /* Pods-KSYLiveDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYLiveDemo.debug.xcconfig"; path = "Target Support Files/Pods-KSYLiveDemo/Pods-KSYLiveDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		C323BC1C1E794C2900D4682C /* KSYFloatStreamerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYFloatStreamerVC.h; sourceTree = "<group>"; };
 		C323BC1D1E794C2900D4682C /* KSYFloatStreamerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYFloatStreamerVC.m; sourceTree = "<group>"; };
 		C323BC1F1E794DEB00D4682C /* KSYFloatingWindowVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYFloatingWindowVC.h; sourceTree = "<group>"; };
@@ -260,6 +269,9 @@
 		C3C37F491E83A02E0060DA49 /* KSYVideoListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYVideoListVC.m; sourceTree = "<group>"; };
 		C3ECDD0C1E6FFA34007203E5 /* KSYHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYHelper.h; sourceTree = "<group>"; };
 		C3ECDD0D1E6FFA34007203E5 /* KSYHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYHelper.m; sourceTree = "<group>"; };
+		C81B29BA4ECBA9BB5FD7C0F9 /* Pods_KSYLiveDemo_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KSYLiveDemo_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CABFCE1ADE574DD6F7E5F7FE /* Pods_KSYLiveDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KSYLiveDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCC95DBD5A808B8952C10D3A /* Pods-KSYLiveDemo_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSYLiveDemo_Swift.release.xcconfig"; path = "Target Support Files/Pods-KSYLiveDemo_Swift/Pods-KSYLiveDemo_Swift.release.xcconfig"; sourceTree = "<group>"; };
 		E33527EB1E49986400DB6DD1 /* KSYSimplestStreamerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYSimplestStreamerVC.h; sourceTree = "<group>"; };
 		E33527EC1E49986400DB6DD1 /* KSYSimplestStreamerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYSimplestStreamerVC.m; sourceTree = "<group>"; };
 		E3EDA85A1D17BBCE00B54437 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -277,6 +289,7 @@
 				E3EDA85D1D17BBDA00B54437 /* Security.framework in Frameworks */,
 				E3EDA85B1D17BBCE00B54437 /* SystemConfiguration.framework in Frameworks */,
 				625EF3B51C9A95BE00DBA1CC /* libsqlite3.tbd in Frameworks */,
+				DFF719C38B1C4C7FF169B24A /* Pods_KSYLiveDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C364944B1E6E8D2F00299E99 /* libsqlite3.tbd in Frameworks */,
+				E463C18377F44E0519482C13 /* Pods_KSYLiveDemo_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +352,7 @@
 		06B2B19A1BE8F0D900E0CC85 = {
 			isa = PBXGroup;
 			children = (
+				6E12832D2A716AF200DDA5BB /* Resources */,
 				06E742AB1D90FFD600C3E780 /* KSYGPUResource.bundle */,
 				06A646DC1D86731E00D1C620 /* KSYLiveDemo-framework.xcconfig */,
 				06CF36E71DE5D14C00BCE88C /* KSYLiveDemo-dy-framework.xcconfig */,
@@ -349,6 +364,7 @@
 				C36493FC1E6E8CA600299E99 /* KSYLiveDemo_Swift */,
 				06B2B1A41BE8F0D900E0CC85 /* Products */,
 				06E670761DEC4DA70015E3BD /* Frameworks */,
+				9E1D69548D8135C467CB5C44 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -393,6 +409,8 @@
 			isa = PBXGroup;
 			children = (
 				06E670771DEC4DA70015E3BD /* libc++.tbd */,
+				CABFCE1ADE574DD6F7E5F7FE /* Pods_KSYLiveDemo.framework */,
+				C81B29BA4ECBA9BB5FD7C0F9 /* Pods_KSYLiveDemo_Swift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -493,6 +511,34 @@
 			path = KSYLiveDemo/KSYPlayerDemo/KSYPlayerSubViews;
 			sourceTree = "<group>";
 		};
+		6E12832D2A716AF200DDA5BB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6E1283312A716D2000DDA5BB /* background.jpg */,
+				6E12832E2A716AFB00DDA5BB /* Videos */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6E12832E2A716AFB00DDA5BB /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				6E12832F2A716B1C00DDA5BB /* SIZZL_DIG05_BAKING_05_9x16_V1_REFINERY.mp4 */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+		9E1D69548D8135C467CB5C44 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A80BAE9BF6C4EFFBB434A904 /* Pods-KSYLiveDemo.debug.xcconfig */,
+				24A4993A74AC1678C8AF8A0C /* Pods-KSYLiveDemo.release.xcconfig */,
+				8279EC1AAEF2B8AAD791E49E /* Pods-KSYLiveDemo_Swift.debug.xcconfig */,
+				DCC95DBD5A808B8952C10D3A /* Pods-KSYLiveDemo_Swift.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C36493FC1E6E8CA600299E99 /* KSYLiveDemo_Swift */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,10 +630,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06B2B1C91BE8F0D900E0CC85 /* Build configuration list for PBXNativeTarget "KSYLiveDemo" */;
 			buildPhases = (
+				D5D8ABE7C1C38369AA4F6D3E /* [CP] Check Pods Manifest.lock */,
 				06B2B19F1BE8F0D900E0CC85 /* Sources */,
 				06B2B1A01BE8F0D900E0CC85 /* Frameworks */,
 				06B2B1A11BE8F0D900E0CC85 /* Resources */,
 				586A6DC71DE5860600AF56B5 /* CopyFiles */,
+				2439007A739515CEE7F7DF8E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -602,9 +650,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C364940C1E6E8CA600299E99 /* Build configuration list for PBXNativeTarget "KSYLiveDemo_Swift" */;
 			buildPhases = (
+				EF2FE0A5DB70B471BA92E0CC /* [CP] Check Pods Manifest.lock */,
 				C36493F71E6E8CA600299E99 /* Sources */,
 				C36493F81E6E8CA600299E99 /* Frameworks */,
 				C36493F91E6E8CA600299E99 /* Resources */,
+				339E1BC7DFB203A8897B155F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -627,11 +677,11 @@
 				TargetAttributes = {
 					06B2B1A21BE8F0D900E0CC85 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = ZGJ54Q7R45;
+						DevelopmentTeam = MHK253H6FM;
 					};
 					C36493FA1E6E8CA600299E99 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = ZGJ54Q7R45;
+						DevelopmentTeam = MHK253H6FM;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -641,6 +691,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -662,6 +713,8 @@
 			files = (
 				06E742AC1D90FFD600C3E780 /* KSYGPUResource.bundle in Resources */,
 				06CF36E81DE5D14C00BCE88C /* KSYLiveDemo-dy-framework.xcconfig in Resources */,
+				6E1283322A716D2000DDA5BB /* background.jpg in Resources */,
+				6E1283302A716B1C00DDA5BB /* SIZZL_DIG05_BAKING_05_9x16_V1_REFINERY.mp4 in Resources */,
 				06B2B1B51BE8F0D900E0CC85 /* Main.storyboard in Resources */,
 				06B2B1BA1BE8F0D900E0CC85 /* LaunchScreen.xib in Resources */,
 				06B2B1B71BE8F0D900E0CC85 /* Images.xcassets in Resources */,
@@ -681,6 +734,97 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2439007A739515CEE7F7DF8E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KSYLiveDemo/Pods-KSYLiveDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
+				"${BUILT_PRODUCTS_DIR}/YYImage/YYImage.framework",
+				"${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework",
+				"${BUILT_PRODUCTS_DIR}/libksygpulive/libksygpulive.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZipArchive.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libksygpulive.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KSYLiveDemo/Pods-KSYLiveDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		339E1BC7DFB203A8897B155F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KSYLiveDemo_Swift/Pods-KSYLiveDemo_Swift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
+				"${BUILT_PRODUCTS_DIR}/libksygpulive/libksygpulive.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libksygpulive.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KSYLiveDemo_Swift/Pods-KSYLiveDemo_Swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5D8ABE7C1C38369AA4F6D3E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KSYLiveDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF2FE0A5DB70B471BA92E0CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KSYLiveDemo_Swift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		06B2B19F1BE8F0D900E0CC85 /* Sources */ = {
@@ -913,11 +1057,13 @@
 		};
 		06B2B1CA1BE8F0D900E0CC85 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A80BAE9BF6C4EFFBB434A904 /* Pods-KSYLiveDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_BITCODE = YES;
+				DEVELOPMENT_TEAM = MHK253H6FM;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
@@ -925,6 +1071,7 @@
 					../source,
 				);
 				INFOPLIST_FILE = KSYLiveDemo/Info.plist;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -949,11 +1096,13 @@
 		};
 		06B2B1CB1BE8F0D900E0CC85 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24A4993A74AC1678C8AF8A0C /* Pods-KSYLiveDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_BITCODE = YES;
+				DEVELOPMENT_TEAM = MHK253H6FM;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
@@ -961,6 +1110,7 @@
 					../source,
 				);
 				INFOPLIST_FILE = KSYLiveDemo/Info.plist;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -985,6 +1135,7 @@
 		};
 		C364940A1E6E8CA600299E99 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8279EC1AAEF2B8AAD791E49E /* Pods-KSYLiveDemo_Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -992,10 +1143,10 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = ZGJ54Q7R45;
+				DEVELOPMENT_TEAM = MHK253H6FM;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = KSYLiveDemo_Swift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ksyun.KSYLiveDemo-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1008,15 +1159,16 @@
 		};
 		C364940B1E6E8CA600299E99 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCC95DBD5A808B8952C10D3A /* Pods-KSYLiveDemo_Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				DEVELOPMENT_TEAM = ZGJ54Q7R45;
+				DEVELOPMENT_TEAM = MHK253H6FM;
 				INFOPLIST_FILE = KSYLiveDemo_Swift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ksyun.KSYLiveDemo-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -26,34 +26,34 @@
 - (id)init{
     self = [super init];
     // 混音音量
-    _micVol = [self addSliderName:@"麦克风音量" From:0.0 To:2.0 Init:0.9];
-    _bgmVol = [self addSliderName:@"背景乐音量"  From:0.0 To:2.0 Init:0.5];
-    _bgmMix = [self addSwitch:YES];
-    
-    _micInput = [self addSegCtrlWithItems:@[ @"内置mic", @"耳麦", @"蓝牙mic"]];
-    [self initMicInput];
-    
-    _lblAudioOnly    = [self addLable:@"纯音频推流"]; // 关闭视频
-    _swAudioOnly     = [self addSwitch:NO]; // 关闭视频
-    _lblMuteSt       = [self addLable:@"静音推流"];
-    _muteStream      = [self addSwitch:NO];
-    
-    _lblStereo     = [self addLable:@"立体声推流"];
-    _stereoStream  = [self addSwitch:NO];
-    _lblReverb  = [self addLable:@"混响"];
-    _reverbType = [self addSegCtrlWithItems:@[@"关闭", @"录影棚",
-                                              @"演唱会",@"KTV",@"小舞台"]];
-    _lblPlayCapture = [self addLable:@"耳返"];
-    _swPlayCapture  = [self addSwitch:NO];
-    _playCapVol= [self addSliderName:@"耳返音量"  From:0.0 To:1.0 Init:0.5];
-    _effectType  = [self addSegCtrlWithItems:@[@"关闭变声",@"大叔", @"萝莉", @"庄严", @"机器人", @"自定义"]];
-    _reverbEffectParamsVaule= [self addSliderName:@"reverb参数值"  From:0.0 To:100.0 Init:0.0];
-    _delayEffectParamsVaule= [self addSliderName:@"delay参数值"  From:0.0 To:100.0 Init:50.0];
-    _pitchEffectParamsVaule= [self addSliderName:@"pitch参数值"  From:-2400.0 To:2400.0 Init:1.0];
-    _swReverbEffect  = [self addSwitch:NO];
-    _swDelayEffect  = [self addSwitch:NO];
-    _swPitchEffect  = [self addSwitch:NO];
-    _noiseSuppressSeg = [self addSegCtrlWithItems:@[@"关闭去噪",@"低", @"中", @"高", @"很高"]];
+    _micVol = [self addSliderName:@"Microphone volume" From:0.0 To:2.0 Init:0.9]; // create a slider for adjusting the microphone volume
+    _bgmVol = [self addSliderName:@"Background music volume"  From:0.0 To:2.0 Init:0.5]; // create a slider for adjusting the background music volume
+    _bgmMix = [self addSwitch:YES]; // create a switch for enabling or disabling the background music
+
+    _micInput = [self addSegCtrlWithItems:@[ @"Built-in mic", @"Earphone mic", @"Bluetooth mic"]]; // create a segmented control for choosing the microphone input
+    [self initMicInput]; // initialize the microphone input
+
+    _lblAudioOnly    = [self addLable:@"Audio-only streaming"]; // create a label for audio-only streaming option
+    _swAudioOnly     = [self addSwitch:NO]; // create a switch for audio-only streaming option
+    _lblMuteSt       = [self addLable:@"Mute streaming"]; // create a label for mute streaming option
+    _muteStream      = [self addSwitch:NO]; // create a switch for mute streaming option
+
+    _lblStereo     = [self addLable:@"Stereo streaming"]; // create a label for stereo streaming option
+    _stereoStream  = [self addSwitch:NO]; // create a switch for stereo streaming option
+    _lblReverb  = [self addLable:@"Reverb"]; // create a label for reverb option
+    _reverbType = [self addSegCtrlWithItems:@[@"Off", @"Studio",
+    @"Concert",@"KTV",@"Small stage"]]; // create a segmented control for choosing the reverb type
+    _lblPlayCapture = [self addLable:@"Ear monitor"]; // create a label for ear monitor option
+    _swPlayCapture  = [self addSwitch:NO]; // create a switch for ear monitor option
+    _playCapVol= [self addSliderName:@"Ear monitor volume"  From:0.0 To:1.0 Init:0.5]; // create a slider for adjusting the ear monitor volume
+    _effectType  = [self addSegCtrlWithItems:@[@"No voice change",@"Uncle", @"Loli", @"Solemn", @"Robot", @"Custom"]]; // create a segmented control for choosing the voice change effect
+    _reverbEffectParamsVaule= [self addSliderName:@"Reverb parameter value"  From:0.0 To:100.0 Init:0.0]; // create a slider for adjusting the reverb parameter value
+    _delayEffectParamsVaule= [self addSliderName:@"Delay parameter value"  From:0.0 To:100.0 Init:50.0]; // create a slider for adjusting the delay parameter value
+    _pitchEffectParamsVaule= [self addSliderName:@"Pitch parameter value"  From:-2400.0 To:2400.0 Init:1.0]; // create a slider for adjusting the pitch parameter value
+    _swReverbEffect  = [self addSwitch:NO]; // create a switch for enabling or disabling the reverb effect
+    _swDelayEffect  = [self addSwitch:NO]; // create a switch for enabling or disabling the delay effect
+    _swPitchEffect  = [self addSwitch:NO]; // create a switch for enabling or disabling the pitch effect
+    _noiseSuppressSeg = [self addSegCtrlWithItems:@[@"No noise reduction",@"Low", @"Medium", @"High", @"Very high"]]; // create a segmented control for choosing the noise reduction level
     _noiseSuppressSeg.selectedSegmentIndex = 3;
     _audioDataTypeSeg = [self addSegCtrlWithItems:@[@"CMSampleBufer",@"RawPcm"]];
     return self;

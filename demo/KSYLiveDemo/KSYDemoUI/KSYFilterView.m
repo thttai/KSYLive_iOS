@@ -37,49 +37,49 @@
 - (id)init{
     self = [super init];
     _effectNames = [NSArray arrayWithObjects:
-                    @"0 原图关闭特效",
-                    @"1 小清新",
-                    @"2 靓丽",
-                    @"3 甜美可人",
-                    @"4 怀旧",
-                    @"5 蓝调",
-                    @"6 老照片",
-                    @"7 樱花",
-                    @"8 樱花（适用于光线较暗的环境）",
-                    @"9 红润（适用于光线较暗的环境）",
-                    @"10 阳光（适用于光线较暗的环境）",
-                    @"11 红润",
-                    @"12 阳光",
-                    @"13 自然",
-                    @"14 恋人",
-                    @"15 高雅",
-                    @"16 红粉佳人 ",
-                    @"17 优格 ",
-                    @"18 流年 ",
-                    @"19 柔光 ",
-                    @"20 经典 ",
-                    @"21 初夏 ",
-                    @"22 黑白 ",
-                    @"23 纽约 ",
-                    @"24 上野 ",
-                    @"25 碧波 ",
-                    @"26 日系 ",
-                    @"27 清凉 ",
-                    @"28 移轴 ",
-                    @"29 梦幻 ",
-                    @"30 恬淡 ",
-                    @"31 候鸟 ",
-                    @"32 淡雅 ", nil];
+    @"0 Original image without effects",
+    @"1 Fresh and clean",
+    @"2 Beautiful",
+    @"3 Sweet and lovely",
+    @"4 Nostalgic",
+    @"5 Blues",
+    @"6 Old photo",
+    @"7 Cherry blossom",
+    @"8 Cherry blossom (suitable for darker environments)",
+    @"9 Rosy (suitable for darker environments)",
+    @"10 Sunshine (suitable for darker environments)",
+    @"11 Rosy",
+    @"12 Sunshine",
+    @"13 Natural",
+    @"14 Lovers",
+    @"15 Elegant",
+    @"16 Pink lady ",
+    @"17 Yogurt ",
+    @"18 Fleeting ",
+    @"19 Soft light ",
+    @"20 Classic ",
+    @"21 Early summer ",
+    @"22 Black and white ",
+    @"23 New York ",
+    @"24 Ueno ",
+    @"25 Azure ",
+    @"26 Japanese style ",
+    @"27 Cool ",
+    @"28 Tilt-shift ",
+    @"29 Dreamy ",
+    @"30 Tranquil ",
+    @"31 Migratory bird ",
+    @"32 Graceful ", nil];
     [self downloadGPUResource];
     _curEffectIdx = 1;
-    // 修改美颜参数
-    _filterParam1 = [self addSliderName:@"参数" From:0 To:100 Init:50];
-    _filterParam2 = [self addSliderName:@"美白" From:0 To:100 Init:50];
-    _filterParam3 = [self addSliderName:@"红润" From:0 To:100 Init:50];
-    _filterParam2.hidden = YES;
-    _filterParam3.hidden = YES;
-    
-    _proFilterLevel    = [self addSliderName:@"类型" From:1 To:4 Init:1];
+    // 修改美颜parameter
+    _filterParam1 = [self addSliderName:@"Parameter" From:0 To:100 Init:50]; // create a slider for adjusting the parameter value
+    _filterParam2 = [self addSliderName:@"Whitening" From:0 To:100 Init:50]; // create a slider for adjusting the whitening value
+    _filterParam3 = [self addSliderName:@"Rosy" From:0 To:100 Init:50]; // create a slider for adjusting the rosy value
+    _filterParam2.hidden = YES; // hide the whitening slider
+    _filterParam3.hidden = YES; // hide the rosy slider
+
+    _proFilterLevel    = [self addSliderName:@"Type" From:1 To:4 Init:1]; // create a slider for choosing the filter type
     _proFilterLevel.precision = 0;
     _proFilterLevel.slider.enabled = NO;
     _proFilterLevelStep  = [[UIStepper alloc] init];
@@ -93,25 +93,25 @@
     _proFilterLevel.hidden = YES;
     _proFilterLevelStep.hidden = YES;
     
-    _lblSeg = [self addLable:@"滤镜"];
+    _lblSeg = [self addLable:@"Filter"]; // create a label for filter option
     _filterGroupType = [self addSegCtrlWithItems:
-  @[ @"关",
-     @"旧美颜",
-     @"美颜pro",
-     @"natural",
-     @"红润",
-     @"特效",
-     ]];
-    _filterGroupType.selectedSegmentIndex = 1;
-    [self selectFilter:1];
-    
-    _lbPrevewFlip = [self addLable:@"预览镜像"];
-    _lbStreamFlip = [self addLable:@"推流镜像"];
-    _swPrevewFlip = [self addSwitch:NO];
-    _swStreamFlip = [self addSwitch:NO];
-    
-    _lbUiRotate   = [self addLable:@"UI旋转"];
-    _lbStrRotate  = [self addLable:@"推流旋转"];
+    @[ @"Off",
+    @"Old beauty",
+    @"Beauty pro",
+    @"Natural",
+    @"Rosy",
+    @"Effect",
+    ]]; // create a segmented control for choosing the filter group type
+    _filterGroupType.selectedSegmentIndex = 1; // set the default filter group type to old beauty
+    [self selectFilter:1]; // select the old beauty filter
+
+    _lbPrevewFlip = [self addLable:@"Preview mirror"]; // create a label for preview mirror option
+    _lbStreamFlip = [self addLable:@"Push stream mirror"]; // create a label for push stream mirror option
+    _swPrevewFlip = [self addSwitch:NO]; // create a switch for preview mirror option
+    _swStreamFlip = [self addSwitch:NO]; // create a switch for push stream mirror option
+
+    _lbUiRotate   = [self addLable:@"UI rotation"]; // create a label for UI rotation option
+    _lbStrRotate  = [self addLable:@"Push stream rotation"]; // create a label for push stream rotation option
     _swUiRotate   = [self addSwitch:NO];
     _swStrRotate  = [self addSwitch:NO];
     _swStrRotate.enabled = NO;
@@ -190,7 +190,7 @@
         _curFilter  = nil;
     }
     else if (idx == 1){
-        _filterParam1.nameL.text = @"参数";
+        _filterParam1.nameL.text = @"parameter";
         _filterParam1.hidden = NO;
         _curFilter = [[KSYGPUBeautifyExtFilter alloc] init];
     }
@@ -201,7 +201,7 @@
         _proFilterLevel.hidden = NO;
         _proFilterLevelStep.hidden = NO;
         KSYBeautifyProFilter * f = [[KSYBeautifyProFilter alloc] initWithIdx:_proFilterLevel.value];
-        _filterParam1.nameL.text = @"磨皮";
+        _filterParam1.nameL.text = @"Microdermabrasion";
         f.grindRatio  = _filterParam1.normalValue;
         f.whitenRatio = _filterParam2.normalValue;
         f.ruddyRatio  = _filterParam3.normalValue;
@@ -212,26 +212,26 @@
         _filterParam2.hidden = NO;
         _filterParam3.hidden = NO;
         KSYBeautifyProFilter * nf = [[KSYBeautifyProFilter alloc] initWithIdx:3];
-        _filterParam1.nameL.text = @"磨皮";
+        _filterParam1.nameL.text = @"Microdermabrasion";
         nf.grindRatio  = _filterParam1.normalValue;
         nf.whitenRatio = _filterParam2.normalValue;
         nf.ruddyRatio  = _filterParam3.normalValue;
         _curFilter    = nf;
     }
-    else if (idx == 4){ // 红润 + 美颜
-        _filterParam1.nameL.text = @"磨皮";
-        _filterParam3.nameL.text = @"红润";
+    else if (idx == 4){ // rosy + 美颜
+        _filterParam1.nameL.text = @"Microdermabrasion";
+        _filterParam3.nameL.text = @"rosy";
         _filterParam1.hidden = NO;
         _filterParam2.hidden = NO;
         _filterParam3.hidden = NO;
         NSString *imgPath=[_gpuResourceDir stringByAppendingString:@"3_tianmeikeren.png"];
         UIImage *rubbyMat=[[UIImage alloc]initWithContentsOfFile:imgPath];
         if (rubbyMat == nil) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
-                                                            message:@"特效资源正在下载，请稍后重试"
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tip"
+                                                            message:@"The effect resources are being downloaded, please try again later"
                                                            delegate:nil
                                                   cancelButtonTitle:nil
-                                                  otherButtonTitles:@"确定", nil];
+                                                  otherButtonTitles:@"OK", nil]; // create an alert view with a tip message and an OK button
             alert.alertViewStyle = UIAlertViewStyleDefault;
             [alert show];
         }
@@ -241,16 +241,16 @@
         bf.ruddyRatio  = _filterParam3.normalValue;
         _curFilter = bf;
     }
-    else if (idx == 5){ // 美颜 + 特效 滤镜组合
-        _filterParam1.nameL.text = @"磨皮";
-        _filterParam3.nameL.text = @"特效";
+    else if (idx == 5){ // 美颜 + special effects 滤镜组合
+        _filterParam1.nameL.text = @"Microdermabrasion";
+        _filterParam3.nameL.text = @"special effects";
         _filterParam1.hidden = NO;
         _filterParam2.hidden = NO;
         _filterParam3.hidden = NO;
         _effectPicker.hidden = NO;
         _proFilterLevel.hidden = NO;
         _proFilterLevelStep.hidden = NO;
-        // 构造美颜滤镜 和  特效滤镜
+        // 构造美颜滤镜 和  special effects滤镜
         KSYBeautifyProFilter    * bf = [[KSYBeautifyProFilter alloc] initWithIdx:_proFilterLevel.value];
         bf.grindRatio  = _filterParam1.normalValue;
         bf.whitenRatio = _filterParam2.normalValue;
@@ -293,7 +293,7 @@
         if (sender == _filterParam2 ) {
             f.whitenRatio = _filterParam2.normalValue;
         }
-        if (sender == _filterParam3 ) {  // 红润参数
+        if (sender == _filterParam3 ) {  // rosyparameter
             f.ruddyRatio = _filterParam3.normalValue;
         }
     }
@@ -305,7 +305,7 @@
         if (sender == _filterParam2 ) {
             f.whitenRatio = _filterParam2.normalValue;
         }
-        if (sender == _filterParam3 ) {  // 红润参数
+        if (sender == _filterParam3 ) {  // rosyparameter
             f.ruddyRatio = _filterParam3.normalValue;
         }
     }
@@ -319,7 +319,7 @@
         if (sender == _filterParam2 ) {
             bf.whitenRatio = _filterParam2.normalValue;
         }
-        if (sender == _filterParam3 ) {  // 特效参数
+        if (sender == _filterParam3 ) {  // special effectsparameter
             [sf setIntensity:_filterParam3.normalValue];
         }
     }

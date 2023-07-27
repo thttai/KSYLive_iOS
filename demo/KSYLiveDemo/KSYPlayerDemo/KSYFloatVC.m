@@ -11,10 +11,10 @@
 
 #define ELEMENT_GAP  15
 
-static NSString *backgroudText1 = {@"    金山视频云依托业界领先的编解码技术与强大的分发服务，立足于金山云顶级的IaaS基础设施，提供一站式云直、点播服务。"};
-static NSString *backgroudText2 = {@"    金山视频云提供内容生产及观看的工具，即推流播放SDK，凭借其完善的功能、卓越的兼容性及性能，满足客户不断涌现的业务需求，再通过金山魔方系统与第三方平台共同实现视频生态链的繁荣。"};
-static NSString *backgroudText3 = {@"    金山视频云提供内容生产及观看的工具，即推流播放SDK，凭借其完善的功能、卓越的兼容性及性能，满足客户不断涌现的业务需求，再通过金山魔方系统与第三方平台共同实现视频生态链的繁荣。"};
-static NSString *backgroudText4 = {@"    金山云推流SDK支持H.264/H.265编码、软硬编，支持多种美颜滤镜特效、连麦，音频模块也在不断强化：美声、升降调、变声、混音等，弱网优化模块也颇有建树：码率自适应、网络主动探测、动态帧率等。"};
+static NSString *backgroudText1 = {@"    Kingsoft Video Cloud relies on the industry-leading codec technology and powerful distribution service, based on the top-level IaaS infrastructure of Kingsoft Cloud, to provide one-stop cloud live and on-demand service."};
+static NSString *backgroudText2 = {@"    Kingsoft Video Cloud provides tools for content production and viewing, namely push stream and play SDK, which meet the emerging business needs of customers with its comprehensive functions, excellent compatibility and performance, and then jointly realize the prosperity of the video ecosystem with Kingsoft Magic Cube system and third-party platforms."};
+static NSString *backgroudText3 = {@"    Kingsoft Video Cloud provides tools for content production and viewing, namely push stream and play SDK, which meet the emerging business needs of customers with its comprehensive functions, excellent compatibility and performance, and then jointly realize the prosperity of the video ecosystem with Kingsoft Magic Cube system and third-party platforms."};
+static NSString *backgroudText4 = {@"    Kingsoft Cloud push stream SDK supports H.264/H.265 encoding, soft and hard encoding, supports various beauty filters and effects, multi-person connection, audio module is also constantly strengthened: beautiful voice, pitch shift, voice change, mixing, etc., weak network optimization module also has achievements: bitrate adaptive, network active detection, dynamic frame rate, etc."};
 
 @implementation KSYFloatVC {
     KSYUIView *ctrlView;
@@ -52,8 +52,8 @@ static NSString *backgroudText4 = {@"    金山云推流SDK支持H.264/H.265编�
     videoView.backgroundColor = [UIColor clearColor];
     [ctrlView addSubview:videoView];
     
-    btnStop = [ctrlView addButton:@"停止"];
-    btnQuit = [ctrlView addButton:@"退出"];
+    btnStop = [ctrlView addButton:@"Stop"];
+    btnQuit = [ctrlView addButton:@"Quit"];
     
     [self layoutUI];
     

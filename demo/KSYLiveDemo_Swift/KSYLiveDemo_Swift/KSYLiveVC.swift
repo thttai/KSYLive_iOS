@@ -77,13 +77,13 @@ class KSYLiveVC: UIViewController {
     func initVariable() {
         _width = view.frame.width
         _height = view.frame.height
-        _controllers = ["播放demo",
-                        "文件格式探测",
-                        "播放自动化测试",
-                        "推流demo",
-                        "录制推流短视频",
-                        "录制播放短视频",
-                        "网络探测"]
+        _controllers = ["play demo",
+                        "file format detection",
+                        "play automation test",
+                        "push stream demo",
+                        "record push stream short video",
+                        "record play short video",
+                        "network detection"]
     }
     
     func initFrame() {

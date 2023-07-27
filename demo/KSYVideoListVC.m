@@ -94,7 +94,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     KSYVideoListCell *cell = [tableView dequeueReusableCellWithIdentifier:kVideoListCellReuseId forIndexPath:indexPath];
     //视频标题
-    cell.textLabel.text = [NSString stringWithFormat:@"视频-%ld    封面图",(long)indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"Video-%ld Cover Art",(long)indexPath.row];
     
     return cell;
 }
@@ -105,28 +105,28 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //取出所选视频的播放地址
+    //Get the play URL of the selected video
     NSURL *url = _videoUrls[indexPath.row];
     KSYVideoListCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (!_player){
-        //初始化播放器
+    if (!_player) {
+        //Initialize the player
         _player = [[KSYMoviePlayerController alloc] initWithContentURL:url];
         _player.scalingMode = MPMovieScalingModeAspectFill;
         _player.view.frame = cell.bounds;
         [cell.contentView addSubview:_player.view];
         [cell.contentView sendSubviewToBack:_player.view];
-        //准备视频播放
+        //Prepare the video playback
         [_player prepareToPlay];
-    }else if (_curPlayingIdx == indexPath){
-        //如果选中的视频为当前已经在播放的视频
+    } else if (_curPlayingIdx == indexPath) {
+        //If the selected video is the one that is already playing
         if (_player.isPlaying) {
             [_player pause];
-            // 记录播放时长
+            // Record the playback duration
             _playbackTimes[indexPath.row] = @(_player.currentPlaybackTime);
         }else if ([_player playbackState] == MPMoviePlaybackStatePaused){
             [_player play];
         }else {
-            // 检查superView
+            // Check superView
             if ([_player.view superview] != cell.contentView) {
                 [_player.view removeFromSuperview];
                 _player.view.frame = cell.bounds;
@@ -135,19 +135,19 @@
             }
             [_player prepareToPlay];
         }
-    }else{//选择播放一个新的视频
-        // 重置播放器
+    } else {//Choose to play a new video
+        // Reset the player
         [_player reset:NO];
-        // 设置新URL
+        // Set new URL
         [_player setUrl:url];
-        // 播放视图添加到cell
+        // Add play view to cell
         [_player.view removeFromSuperview];
         _player.view.frame = cell.bounds;
         [cell.contentView addSubview:_player.view];
         [cell.contentView sendSubviewToBack:_player.view];
-        // 获取播放进度
+        // Get the playback progress
         NSTimeInterval pos = [_playbackTimes[indexPath.row] doubleValue];
-        // 开始播放
+        // Start playing
         [_player seekTo:pos accurate:YES];
         [_player prepareToPlay];
     }
@@ -180,7 +180,7 @@
         [quitBtn addTarget:self action:@selector(onQuit:) forControlEvents:UIControlEventTouchUpInside];
         quitBtn.backgroundColor = [UIColor lightGrayColor];
         [quitBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        [quitBtn setTitle:@"返回" forState:UIControlStateNormal];
+        [quitBtn setTitle:@"return" forState:UIControlStateNormal];
         [quitBtn sizeToFit];
         return quitBtn;
     }

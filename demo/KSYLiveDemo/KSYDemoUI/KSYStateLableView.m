@@ -70,32 +70,30 @@
     NSString *uploadDateSize = [KSYUIVC sizeFormatted:curState.uploadKByte];
     NSString* stateurl  = [NSString stringWithFormat:@"%@\n", [str.hostURL absoluteString]];
     //显示拉流地址
-    NSString *playUrl = @"http://mobile.kscvbu.cn:8080/live/";
+    NSString *playUrl = @"rtmp://media-server-loadbalance-dev-b57a989a84b69859.elb.ap-southeast-1.amazonaws.com:1935/live/";
     if (![[str.hostURL scheme] isEqualToString:@"rtmp"]) {
         //录制到本地
         NSString *fileName = [[stateurl componentsSeparatedByString:@"/"]lastObject];
-        playUrl = [NSString stringWithFormat:@"拉流地址:%@\n",fileName];
+        playUrl = [NSString stringWithFormat:@"Stream URL:%@\n",fileName];
     }else{
         //推流
         NSString *fileName = [[stateurl componentsSeparatedByString:@"/"]lastObject];
-        NSString *playUrlPostfix = @".flv";
+        NSString *playUrlPostfix = @"/index.m3u8";
         playUrl = [NSString stringWithFormat:@"%@%@%@",playUrl,fileName,playUrlPostfix];
-        playUrl = [NSString stringWithFormat:@"拉流地址:%@\n",playUrl];
+        playUrl = [NSString stringWithFormat:@"Streaming address:%@\n",playUrl];
     }
-    NSString* statekbps = [NSString stringWithFormat:@"实时码率(kbps)%4.1f\tA%4.1f\tV%4.1f\n", realTKbps, [str encodeAKbps], [str encodeVKbps] ];
-    NSString* statefps  = [NSString stringWithFormat:@"实时帧率(fps)%2.1f %2.1f\t总上传:%@\n", encFps, capFps, uploadDateSize ];
-    NSString* videoqosinfo = [NSString stringWithFormat:@"视频缓冲 %d B  %d ms  %d packets \n",
-                                                    info->videoBufferDataSize, info->videoBufferTimeLength, info->videoBufferPackets];
-    NSString* audioqosinfo = [NSString stringWithFormat:@"音频缓冲 %d B  %d ms  %d packets \n",
-                                                    info->audioBufferDataSize, info->audioBufferTimeLength, info->audioBufferPackets];
-    NSString* statedrop = [NSString stringWithFormat:@"视频丢帧 %4d\t %2.1f%% \n", curState.droppedVFrames, dropPercent ];
-    NSString* netEvent = [NSString stringWithFormat:@"网络事件计数 %d bad\n\tbw %d Raise %d drop\t fps %d Raise %d drop\n",
-                                            _notGoodCnt, _bwRaiseCnt, _bwDropCnt, _fpsRaiseCnt, _fpsDropCnt];
+    NSString* statekbps = [NSString stringWithFormat:@"Real-time bitrate(kbps)%4.1f\tA%4.1f\tV%4.1f\n", realTKbps, [str encodeAKbps], [str encodeVKbps] ];
+    NSString* statefps  = [NSString stringWithFormat:@"Real-time frame rate(fps)%2.1f %2.1f\tTotal upload:%@\n", encFps, capFps, uploadDateSize ];
+    NSString* videoqosinfo = [NSString stringWithFormat:@"Video buffer %d B  %d ms  %d packets \n",
+    info->videoBufferDataSize, info->videoBufferTimeLength, info->videoBufferPackets];
+    NSString* audioqosinfo = [NSString stringWithFormat:@"Audio buffer %d B  %d ms  %d packets \n",
+    info->audioBufferDataSize, info->audioBufferTimeLength, info->audioBufferPackets];
+    NSString* statedrop = [NSString stringWithFormat:@"Video frame drop %4d\t %2.1f%% \n", curState.droppedVFrames, dropPercent ];
+    NSString* netEvent = [NSString stringWithFormat:@"Network event count %d bad\n\tbw %d Raise %d drop\t fps %d Raise %d drop\n",
+    _notGoodCnt, _bwRaiseCnt, _bwDropCnt, _fpsRaiseCnt, _fpsDropCnt];
     NSString *cpu_use = [NSString stringWithFormat:@"%@ \tcpu: %.2f mem: %.1fMB",liveTime, [KSYUIVC cpu_usage], [KSYUIVC memory_usage] ];
     NSArray *texts = @[stateurl, playUrl, statekbps, statefps, videoqosinfo, audioqosinfo, statedrop, netEvent, cpu_use ];
     self.text = [texts componentsJoinedByString:@""];
-
-    
 }
 
 - (void)drawTextInRect:(CGRect) rect {

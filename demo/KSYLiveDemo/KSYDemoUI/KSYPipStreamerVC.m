@@ -30,7 +30,7 @@
 
 #pragma mark - UIViewController
 - (void)viewDidLoad {
-    self.menuNames = [self.menuNames arrayByAddingObject:@"画中画"];
+    self.menuNames = [self.menuNames arrayByAddingObject:@"picture in picture"];
     _pipBtnIdx = self.menuNames.count;
     _pipKit = [[KSYGPUPipStreamerKit alloc] initWithDefaultCfg];
     self.kit = _pipKit;
@@ -54,12 +54,21 @@
 - (void) initObservers{
     [super initObservers];
     [self.obsDict setObject:SEL_VALUE(onPipStateChange:) forKey:MPMoviePlayerPlaybackStateDidChangeNotification];
+    [self.obsDict setObject:SEL_VALUE(onPipDidFinish:) forKey:MPMoviePlayerPlaybackDidFinishNotification];
 }
 
 #pragma mark -  state change
 - (void) onPipStateChange  :(NSNotification *)notification{
     NSString * st = [_pipKit getCurPipStateName];
     _ksyPipView.pipStatus = [st substringFromIndex:20];
+    NSLog(@"-- onPipStateChange %@", st);
+}
+
+- (void) onPipDidFinish  :(NSNotification *)notification{
+    NSString * st = [_pipKit getCurPipStateName];
+    _ksyPipView.pipStatus = [st substringFromIndex:20];
+    NSLog(@"++ onPipDidFinish %@", st);
+    [_pipKit stopPip];
 }
 
 #pragma mark - timer respond per second
@@ -106,8 +115,12 @@
 }
 
 - (void)onPipPlay{
-    [_pipKit startPipWithPlayerUrl:self.ksyPipView.pipURL
-                          bgPic:self.ksyPipView.bgpURL];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"SIZZL_DIG05_BAKING_05_9x16_V1_REFINERY" withExtension:@"mp4"];
+    NSURL *bgpURL = [[NSBundle mainBundle] URLForResource:@"background" withExtension:@"jpg"];
+    [_pipKit startPipWithPlayerUrl:url
+                          bgPic:bgpURL];
+//    [_pipKit startPipWithPlayerUrl:self.ksyPipView.pipURL
+//                          bgPic:self.ksyPipView.bgpURL];
 }
 - (void)onPipStop{
     [_pipKit stopPip];

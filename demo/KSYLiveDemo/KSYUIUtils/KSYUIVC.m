@@ -53,10 +53,10 @@
     _preStatue = currentStatus;
     switch (currentStatus) {
         case KSYNotReachable:
-            _networkStatus = @"无网络";
+            _networkStatus = @"No network";
             break;
         case KSYReachableViaWWAN:
-            _networkStatus = @"移动网络";
+            _networkStatus = @"mobile network";
             break;
         case KSYReachableViaWiFi:
             _networkStatus = @"WIFI";
@@ -283,18 +283,18 @@
     
     if (error == nil) {
         UIAlertView *toast = [[UIAlertView alloc] initWithTitle:@"O(∩_∩)O~~"
-                                                        message:@"图像已保存至手机相册"
+                                                        message:@"Image saved to phone camera roll"
                                                        delegate:nil
-                                              cancelButtonTitle:@"确定"
+                                              cancelButtonTitle:@"Sure"
                                               otherButtonTitles:nil, nil];
         [toast show];
         
     }else{
         
         UIAlertView *toast = [[UIAlertView alloc] initWithTitle:@"￣へ￣"
-                                                        message:@"图像保存手机相册失败！"
+                                                        message:@"Failed to save image to phone album!"
                                                        delegate:nil
-                                              cancelButtonTitle:@"确定"
+                                              cancelButtonTitle:@"Sure"
                                               otherButtonTitles:nil, nil];
         [toast show];
     }

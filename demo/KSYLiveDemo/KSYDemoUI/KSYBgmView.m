@@ -20,14 +20,14 @@
 @implementation KSYBgmView
 -(id)init{
     self = [super init];
-    _bgmTitle   = [self addLable:@"背景音乐地址 Documents/bgms"];
-    _previousBtn= [self addButton:@"上一首"];
-    _playBtn    = [self addButton:@"播放"];
-    _pauseBtn   = [self addButton:@"暂停"];
-    [_pauseBtn setTitle: @"继续" forState: UIControlStateSelected];
-    _stopBtn    = [self addButton:@"停止"];
-    _volumSl    = [self addSliderName:@"音量" From:0 To:100 Init:50];
-    _pitchSl    = [self addSliderName:@"音调" From:-3 To:3 Init:0];
+    _bgmTitle   = [self addLable:@"Background music address Documents/bgms"]; // create a label for showing the background music address
+    _previousBtn= [self addButton:@"Previous"]; // create a button for playing the previous music
+    _playBtn    = [self addButton:@"Play"]; // create a button for playing the music
+    _pauseBtn   = [self addButton:@"Pause"]; // create a button for pausing the music
+    [_pauseBtn setTitle: @"Resume" forState: UIControlStateSelected]; // set the title of the pause button to resume when selected
+    _stopBtn    = [self addButton:@"Stop"]; // create a button for stopping the music
+    _volumSl    = [self addSliderName:@"Volume" From:0 To:100 Init:50]; // create a slider for adjusting the volume
+    _pitchSl    = [self addSliderName:@"Pitch" From:-3 To:3 Init:0]; // create a slider for adjusting the pitch
     _pitchSl.precision = 0;
     _pitchSl.slider.enabled = NO;
     _pitchStep  = [[UIStepper alloc] init];
@@ -38,14 +38,14 @@
     [_pitchStep addTarget:self
                    action:@selector(onStep:)
          forControlEvents:UIControlEventValueChanged];
-    _nextBtn    = [self addButton:@"下一首"];
+    _nextBtn    = [self addButton:@"next song"];
     _bgmStatus  = @"idle";
     _bgmPattern = @[@".mp3", @".m4a", @".aac"];
     _bgmSel     = [[KSYFileSelector alloc] initWithDir:@"/Documents/bgms/"
                                              andSuffix:_bgmPattern];
     _bgmPath    = _bgmSel.filePath;
     _cnt        = _bgmSel.fileList.count;
-    _loopType = [self addSegCtrlWithItems:@[@"单曲播放", @"单曲循环", @"随机播放",@"循环播放"]];
+    _loopType = [self addSegCtrlWithItems:@[@"Single play", @"Single loop", @"Random play",@"Loop play"]]; // create a segmented control for choosing the loop type
     _loopType.selectedSegmentIndex = 3;
     _progressBar = [[KSYProgressView alloc] init];
     [self addSubview:_progressBar];

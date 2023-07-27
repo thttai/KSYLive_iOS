@@ -98,10 +98,10 @@ class KSYUIVC: UIViewController {
         _preStatue = currentStatus
         switch currentStatus {
         case .NotReachable:
-            networkStatus = "无网络"
+            networkStatus = "No network"
             break
         case .ReachableViaWWAN:
-            networkStatus = "移动网络"
+            networkStatus = "mobile network"
             break
         case .ReachableViaWiFi:
             networkStatus = "WIFI"

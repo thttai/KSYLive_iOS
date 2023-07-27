@@ -21,7 +21,7 @@
 - (id) init {
     self = [super init];
     self.backgroundColor = [UIColor whiteColor];
-    _text  = [self addLable:@"金山视频云依托业界领先的编解码技术与强大的分发服务，立足于金山云顶级的IaaS基础设施，提供一站式云直、点播服务。\n金山视频云提供内容生产及观看的工具，即推流播放SDK，凭借其完善的功能、卓越的兼容性及性能，满足客户不断涌现的业务需求，再通过金山魔方系统与第三方平台共同实现视频生态链的繁荣。\n\n金山云推流SDK支持H.264/H.265编码、软硬编，支持多种美颜滤镜特效、连麦，音频模块也在不断强化：美声、升降调、变声、混音等，弱网优化模块也颇有建树：码率自适应、网络主动探测、动态帧率等。\n金山云播放SDK通过首屏秒开、直播追赶等直播优化策略给直播提供一流的直播体验。"];
+    _text  = [self addLable:@"Relying on industry-leading codec technology and powerful distribution services, Kingsoft Video Cloud provides one-stop cloud live broadcast and on-demand services based on Kingsoft Cloud's top IaaS infrastructure. \nKingsoft Video Cloud provides tools for content production and viewing, that is, streaming streaming SDK. With its complete functions, excellent compatibility and performance, it can meet customers' emerging business needs, and then cooperate with third-party platforms through the Kingsoft Cube system. Realize the prosperity of the video ecological chain. \n\nKingsoft Cloud Push Streaming SDK supports H.264/H.265 encoding, soft and hard encoding, supports a variety of beautifying filter effects, and even microphones. Audio, etc., and the weak network optimization module has also made great achievements: bit rate adaptation, network active detection, dynamic frame rate, etc. \nKingsoft Cloud Play SDK provides a first-class live broadcast experience through live broadcast optimization strategies such as opening the first screen in seconds and live broadcast catching up."];
     _text.textAlignment = NSTextAlignmentCenter;
     _text.numberOfLines = 0;
 

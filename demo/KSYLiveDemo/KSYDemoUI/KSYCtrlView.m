@@ -19,12 +19,12 @@
 
 - (id) initWithMenu:(NSArray *) menuNames {
     self = [super init];
-    _btnFlash  =  [self addButton:@"闪光灯" ];
-    _btnCameraToggle =  [self addButton:@"前后摄像头" ];
-    _btnQuit   =  [self addButton:@"退出" ];
-    _lblNetwork=  [self addLable:@""  ];
-    _btnStream =  [self addButton:@"推流"  ];
-    _btnCapture=  [self addButton:@"采集"  ];
+    _btnFlash  =  [self addButton:@"Flashlight" ]; // create a button for turning on or off the flashlight
+    _btnCameraToggle =  [self addButton:@"Front and rear camera" ]; // create a button for switching between the front and rear camera
+    _btnQuit   =  [self addButton:@"Quit" ]; // create a button for quitting the app
+    _lblNetwork=  [self addLable:@"" ]; // create a label for showing the network status
+    _btnStream =  [self addButton:@"Push stream" ]; // create a button for pushing the stream
+    _btnCapture=  [self addButton:@"Capture" ]; // create a button for capturing the video
     _lblStat   =  [[KSYStateLableView alloc] init];
     [self addSubview:_lblStat];
     // format
@@ -38,7 +38,7 @@
     }
     _menuBtns = [NSArray arrayWithArray:btnArray];
     
-    _backBtn   = [self addButton:@"菜单"
+    _backBtn   = [self addButton:@"menu"
                           action:@selector(onBack:)];
     _backBtn.hidden = YES;
     _curSubMenuView = nil;

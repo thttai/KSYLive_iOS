@@ -72,34 +72,37 @@ typedef NS_ENUM(NSInteger, KSYDemoMenuType){
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"KSYDEMO";
-    _labelMenu = [self addLabelWithText:@"Demo 功能列表" textColor:[UIColor blueColor]];
-    _labelAddress = [self addLabelWithText:@"播放地址列表" textColor:[UIColor blueColor]];
+    _labelMenu = [self addLabelWithText:@"Demo function list" textColor:[UIColor blueColor]];
+    _labelAddress = [self addLabelWithText:@"play address list" textColor:[UIColor blueColor]];
     //添加开始按钮
-    _buttonDone = [self addButton:@"开始"];
+    _buttonDone = [self addButton:@"start"];
     self.view.backgroundColor = [UIColor whiteColor];
     NSString * uuidStr =[[[UIDevice currentDevice] identifierForVendor] UUIDString];
-    NSString *devCode  = [[uuidStr substringToIndex:3] lowercaseString];
+    NSString *devCode  = [NSString stringWithFormat:@"%.0f", [NSDate timeIntervalSinceReferenceDate]];//[[uuidStr substringToIndex:3] lowercaseString];
+    NSLog(@"----- streamkey 0 {%@}", devCode);
     //推流地址
-    NSString *streamSrv  = @"rtmp://mobile.kscvbu.cn/live";
+    NSString *streamSrv  = @"rtmp://media-server-loadbalance-dev-b57a989a84b69859.elb.ap-southeast-1.amazonaws.com:1935/live";
     NSString *streamUrl      = [ NSString stringWithFormat:@"%@/%@", streamSrv, devCode];
     _arrayStreamAddress = [NSMutableArray arrayWithObjects:streamUrl,nil];
+    NSLog(@"----- streamUrl {%@}", streamUrl);
     //推流地址对应的拉流地址
-    NSString *streamPlaySrv = @"http://mobile.kscvbu.cn:8080/live";
-    NSString *streamPlayPostfix = @".flv";
-    NSString *streamPlayUrl = [ NSString stringWithFormat:@"%@/%@%@", streamPlaySrv, devCode,streamPlayPostfix];
+    NSString *streamPlaySrv = @"https://d3eu01ol3fe0ae.cloudfront.net/ap-southeast-1/live";
+    NSString *streamPlayPostfix = @"index.m3u8";
+    NSString *streamPlayUrl = [ NSString stringWithFormat:@"%@/%@/%@", streamPlaySrv, devCode, streamPlayPostfix];
+    NSLog(@"----- streamPlayUrl {%@}", streamPlayUrl);
     //拉流地址
-    NSString *playUrl = @"rtmp://live.hkstv.hk.lxdns.com/live/hks";
+    NSString *playUrl = @"https://d3eu01ol3fe0ae.cloudfront.net/ap-southeast-1/live/c3af5a00-e34c-43e3-8f72-086cf6436024/index.m3u8";
     _arrayPlayAddress = [NSMutableArray array];
     [_arrayPlayAddress addObject:playUrl];
     [_arrayPlayAddress addObject:streamPlayUrl];
     [_arrayPlayAddress addObject:@"RecordAv.mp4"];
     //初始化时的默认Url
     _currentSelectUrl = _arrayPlayAddress[0];
-    //录制文件名
+    //recording file name
     NSString *recordFile = @"RecordAv.mp4";
     _arrayRecordFileName = [NSMutableArray arrayWithObjects:recordFile,nil];
     [self initVariable];
-    //布局UI
+    //layout UI
     [self initLiveVCUI];
     
 }
@@ -199,17 +202,17 @@ typedef NS_ENUM(NSInteger, KSYDemoMenuType){
         if (row >= 0 && row <= 3) {
             //类型为播放
             _type = KSYDemoMenuType_PLAY;
-            _labelAddress.text = @"播放地址列表";
+            _labelAddress.text = @"play address list";
             _currentSelectUrl = _arrayPlayAddress[0];
         }else if(row >= 5 && row <= 9){
             //类型为推流
             _type = KSYDemoMenuType_STREAM;
-            _labelAddress.text = @"推流地址列表";
+            _labelAddress.text = @"Streaming address list";
             _currentSelectUrl = _arrayStreamAddress[0];
         }else if(row == 10){
             //类型为录制
             _type = KSYDemoMenuType_RECORD;
-            _labelAddress.text = @"录制文件名";
+            _labelAddress.text = @"recording file name";
             _currentSelectUrl = _arrayRecordFileName[0];
         }else if(row == 4 || row == 11){
             //类型为测试
@@ -287,25 +290,25 @@ typedef NS_ENUM(NSInteger, KSYDemoMenuType){
 - (void)initVariable{
     _vcNameDict = [[NSMutableDictionary alloc] init];
     _controllers = [[NSMutableArray alloc] init];
-    [self addMenu:@"播放demo"     withBlk:^(NSURL* url){return [[KSYPlayerCfgVC alloc]initWithURL:url fileList:nil];} ];
-    [self addMenu:@"视频列表"      withBlk:^(NSURL* url){return [[KSYVideoListVC alloc] initWithUrl:url];} ];
-    [self addMenu:@"文件格式探测"   withBlk:^(NSURL* url){return [[KSYProberVC alloc]initWithURL:url];} ];
-    [self addMenu:@"播放自动化测试" withBlk:^(NSURL* url){return [[KSYMonkeyTestVC alloc] init];} ];
+    [self addMenu:@"play the demo"     withBlk:^(NSURL* url){return [[KSYPlayerCfgVC alloc]initWithURL:url fileList:nil];} ];
+    [self addMenu:@"video list"      withBlk:^(NSURL* url){return [[KSYVideoListVC alloc] initWithUrl:url];} ];
+    [self addMenu:@"file format detection"   withBlk:^(NSURL* url){return [[KSYProberVC alloc]initWithURL:url];} ];
+    [self addMenu:@"Play automated tests" withBlk:^(NSURL* url){return [[KSYMonkeyTestVC alloc] init];} ];
 #ifndef KSYPlayer_Demo
-    [self addMenu:@"录制播放短视频" withBlk:^(NSURL* url){return [[KSYRecordVC alloc]initWithURL:url];} ];
-    [self addMenu:@"推流demo"     withBlk:^(NSURL* url){return [[KSYPresetCfgVC alloc]initWithURL:url];} ];
-    [self addMenu:@"极简推流"      withBlk:^(NSURL* url){return [[KSYSimplestStreamerVC alloc] initWithUrl:url];} ];
-    [self addMenu:@"半屏推流"      withBlk:^(NSURL* url){return [[KSYHorScreenStreamerVC alloc] initWithUrl:url];} ];
-    [self addMenu:@"画笔推流"      withBlk:^(NSURL* url){return [[KSYBrushStreamerVC alloc] initWithUrl:url];} ];
-    [self addMenu:@"背景图片推流"   withBlk:^(NSURL* url){return [[KSYBgpStreamerVC alloc] initWithUrl:url];} ];
-    [self addMenu:@"录制推流短视频" withBlk:^(NSURL* url){
+    [self addMenu:@"Record and play short video" withBlk:^(NSURL* url){return [[KSYRecordVC alloc]initWithURL:url];} ];
+    [self addMenu:@"push stream demo"     withBlk:^(NSURL* url){return [[KSYPresetCfgVC alloc]initWithURL:url];} ];
+    [self addMenu:@"Minimalist streaming"      withBlk:^(NSURL* url){return [[KSYSimplestStreamerVC alloc] initWithUrl:url];} ];
+    [self addMenu:@"half screen streaming"      withBlk:^(NSURL* url){return [[KSYHorScreenStreamerVC alloc] initWithUrl:url];} ];
+    [self addMenu:@"brush streaming"      withBlk:^(NSURL* url){return [[KSYBrushStreamerVC alloc] initWithUrl:url];} ];
+    [self addMenu:@"Background picture streaming"   withBlk:^(NSURL* url){return [[KSYBgpStreamerVC alloc] initWithUrl:url];} ];
+    [self addMenu:@"Record push streaming short video" withBlk:^(NSURL* url){
         KSYPresetCfgVC *preVC = [[KSYPresetCfgVC alloc]initWithURL:url];
-        [preVC.cfgView.btn0 setTitle:@"开始录制" forState:UIControlStateNormal];
+        [preVC.cfgView.btn0 setTitle:@"start recording" forState:UIControlStateNormal];
         preVC.cfgView.btn1.enabled = NO;
         preVC.cfgView.btn3.enabled = NO;
         return preVC;}];
 #endif
-    [self addMenu: @"网络探测" withBlk:^(NSURL* url){return [[KSYNetTrackerVC alloc]init];}];
+    [self addMenu: @"network detection" withBlk:^(NSURL* url){return [[KSYNetTrackerVC alloc]init];}];
 }
 
 - (void)initFrame{
@@ -351,8 +354,8 @@ typedef NS_ENUM(NSInteger, KSYDemoMenuType){
     //添加功能菜单和地址列表的picker
     _pickerMenu = [self addPickerView];
     _pickerAddress = [self addPickerView];
-    _buttonQR     = [self addButton:@"扫描二维码"];
-    _buttonAbout  = [self addButton:@"关于"];
+    _buttonQR     = [self addButton:@"Scan QR code"];
+    _buttonAbout  = [self addButton:@"about"];
     [self initFrame];
     // reload last choise
     _selectMenuRow = [self loadSelectMenuRow];
@@ -368,9 +371,9 @@ typedef NS_ENUM(NSInteger, KSYDemoMenuType){
     else if (sender == _buttonAbout){
         NSString *build = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
         //进入帮助页面
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"金山云直播SDK" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
-        NSString * fmt = @"版本: %@\n"
-        @"QQ群: 574179720 \n"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Kingsoft Cloud Live SDK" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Sure", nil];
+        NSString * fmt = @"Version: %@\n"
+        @"QQ group: 574179720 \n"
         @"(iOS)https://github.com/ksvc/KSYLive_iOS \n"
         @"(Android)https://github.com/ksvc/KSYLive_Android";
         alert.message = [NSString stringWithFormat:fmt, build];

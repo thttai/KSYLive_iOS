@@ -15,7 +15,7 @@
 @implementation KSYFloatStreamerVC
 
 - (void)viewDidLoad {
-    self.menuNames = [self.menuNames arrayByAddingObject:@"悬浮窗"];
+    self.menuNames = [self.menuNames arrayByAddingObject:@"Floating window"];
     [super viewDidLoad];
 }
 

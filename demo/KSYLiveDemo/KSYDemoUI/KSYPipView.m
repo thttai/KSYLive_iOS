@@ -21,18 +21,18 @@
 -(id)init{
     self = [super init];
     _pipStatus  = @"idle";
-    _pipTitle   = [self addLable:@"画中画地址 Documents/movies"];
+    _pipTitle   = [self addLable:@"PIP address Documents/movies"];
     _pipTitle.numberOfLines = 2;
     _pipTitle.textAlignment = NSTextAlignmentLeft;
     
     _progressV  = [[UIProgressView alloc] init];
     [self addSubview:_progressV];
-    _pipPlay    = [self addButton:@"播放"];
-    _pipPause   = [self addButton:@"暂停"];
-    _pipStop    = [self addButton:@"停止"];
-    _pipNext    = [self addButton:@"下一个视频文件"];
-    _bgpNext    = [self addButton:@"下一个背景图片"];
-    _volumSl    = [self addSliderName:@"音量" From:0 To:100 Init:50];
+    _pipPlay    = [self addButton:@"Play"]; // create a button for playing the video
+    _pipPause   = [self addButton:@"Pause"]; // create a button for pausing the video
+    _pipStop    = [self addButton:@"Stop"]; // create a button for stopping the video
+    _pipNext    = [self addButton:@"Next video file"]; // create a button for switching to the next video file
+    _bgpNext    = [self addButton:@"Next background image"]; // create a button for switching to the next background image
+    _volumSl    = [self addSliderName:@"Volume" From:0 To:100 Init:50]; // create a slider for adjusting the volume
     
     _pipPattern = @[@".mp4", @".flv"];
     _bgpPattern = @[@".jpg",@".jpeg", @".png"];

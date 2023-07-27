@@ -25,16 +25,16 @@
 }
 
 - (void) setupUI {
-    _labelContenMode = [self addLable:@"填充模式"];
-    _segContentMode = [self addSegCtrlWithItems:@[@"无", @"同比", @"裁剪", @"满屏"]];
-    
-    _labelRotate = [self addLable:@"旋转"];
-    _segRotate = [self addSegCtrlWithItems:@[@"0", @"90", @"180", @"270"]];
-    
-    _labelMirror = [self addLable:@"镜像"];
-    _segMirror = [self addSegCtrlWithItems:@[@"正向", @"反向"]];
-    
-    _btnShotScreen = [self addButton:@"截图"];
+    _labelContenMode = [self addLable:@"Fill mode"]; // create a label for fill mode option
+    _segContentMode = [self addSegCtrlWithItems:@[@"None", @"Aspect fit", @"Aspect fill", @"Full screen"]]; // create a segmented control for choosing the fill mode
+
+    _labelRotate = [self addLable:@"Rotate"]; // create a label for rotate option
+    _segRotate = [self addSegCtrlWithItems:@[@"0", @"90", @"180", @"270"]]; // create a segmented control for choosing the rotation angle
+
+    _labelMirror = [self addLable:@"Mirror"]; // create a label for mirror option
+    _segMirror = [self addSegCtrlWithItems:@[@"Normal", @"Reverse"]]; // create a segmented control for choosing the mirror direction
+
+    _btnShotScreen = [self addButton:@"Screenshot"]; // create a button for taking a screenshot
     [self layoutUI];
 }
 

@@ -39,22 +39,22 @@ UIPickerViewDelegate>{
 - (void)streamStateChanged{
     switch (_kit.streamerBase.streamState) {
         case KSYStreamStateIdle:
-        _streamState.text = @"空闲状态";
-        break;
+            _streamState.text = @"Idle state";
+            break;
         case KSYStreamStateConnecting:
-        _streamState.text = @"连接中";
-        break;
+            _streamState.text = @"Connecting";
+            break;
         case KSYStreamStateConnected:
-        _streamState.text = @"已连接";
-        break;
+            _streamState.text = @"Connected";
+            break;
         case KSYStreamStateDisconnecting:
-        _streamState.text = @"失去连接";
-        break;
+            _streamState.text = @"Disconnected";
+            break;
         case KSYStreamStateError:
-        _streamState.text = @"连接错误";
-        break;
+            _streamState.text = @"Connection error";
+            break;
         default:
-        break;
+            break;
     }
 }
 - (void)viewDidLoad {
@@ -85,13 +85,13 @@ UIPickerViewDelegate>{
     _ctrlView.onBtnBlock = ^(id sender){
         [selfWeak  onBtn:sender];
     };
-
+    
     // top view
-    _quitBtn = [_ctrlView addButton:@"退出"];
-    _streamState = [_ctrlView addLable:@"空闲状态"];
+    _quitBtn = [_ctrlView addButton:@"Quit"];
+    _streamState = [_ctrlView addLable:@"Idle state"];
     _streamState.textColor = [UIColor redColor];
     _streamState.textAlignment = NSTextAlignmentCenter;
-    _cameraBtn = [_ctrlView addButton:@"前后摄像头"];
+    _cameraBtn = [_ctrlView addButton:@"Front and back camera"];
     
     // profile picker
     _profilePicker = [[UIPickerView alloc] init];
@@ -102,9 +102,9 @@ UIPickerViewDelegate>{
     [_profilePicker selectRow:7 inComponent:0 animated:YES];
     
     // bottom view
-    _captureBtn = [_ctrlView addButton:@"开始预览"];
-    _streamBtn = [_ctrlView addButton:@"开始推流"];
-
+    _captureBtn = [_ctrlView addButton:@"Start preview"];
+    _streamBtn = [_ctrlView addButton:@"Start streaming"];
+    
     [self.view addSubview:_ctrlView];
     [_ctrlView addSubview:_profilePicker];
     [self layoutUI];
