@@ -142,10 +142,16 @@
 }
 
 - (void)onBgpNext{
-    if ( _pipKit.player ){
-        [_pipKit startPipWithPlayerUrl:nil
-                              bgPic:self.ksyPipView.bgpURL];
+    NSURL *bgpURL = [[NSBundle mainBundle] URLForResource:@"background" withExtension:@"jpg"];
+    if ([_pipKit isShowBgPic]) {
+        [_pipKit removeBgPic];
+    } else {
+        [_pipKit showBgPic:bgpURL];
     }
+//    if ( _pipKit.player ){
+//        [_pipKit startPipWithPlayerUrl:nil
+//                              bgPic:self.ksyPipView.bgpURL];
+//    }
 }
 
 - (void)pipVolChange:(id)sender{
